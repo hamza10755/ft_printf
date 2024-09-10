@@ -6,7 +6,7 @@
 /*   By: hamzabillah <hamzabillah@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 23:36:01 by hamzabillah       #+#    #+#             */
-/*   Updated: 2024/09/11 00:49:29 by hamzabillah      ###   ########.fr       */
+/*   Updated: 2024/09/11 01:12:15 by hamzabillah      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int print_format(char sp, va_list ap)
         count += printdigit((long)va_arg(ap, int), 10);// casted to long to contain every case for the decimal and the hexadecimal 
     else if (sp == 'x')
         count += printdigit((long)va_arg(ap,unsigned int), 16);
+    else if (sp == 'X')
+        count += printdigit_upper((long)va_arg(ap, unsigned int), 16);
     else
         count += write(1, &sp, 1);
     return (count);
