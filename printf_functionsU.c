@@ -6,7 +6,7 @@
 /*   By: hbelaih <hbelaih@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:58:56 by hbelaih           #+#    #+#             */
-/*   Updated: 2024/09/11 15:33:01 by hbelaih          ###   ########.fr       */
+/*   Updated: 2024/09/12 17:58:20 by hbelaih          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	put_unsigned(unsigned int n)
 {
 	if (n >= 10)
 		put_unsigned(n / 10);
-	ft_putchar((n % 10) + 0);
+	ft_putchar((n % 10) + '0');
 }
 
 static int	unsigned_len(unsigned int num)
@@ -26,7 +26,7 @@ static int	unsigned_len(unsigned int num)
 	n = 0;
 	if (num == 0)
 		return (1);
-	while (num)
+	while (num > 0)
 	{
 		n++;
 		num /= 10;

@@ -6,7 +6,7 @@
 /*   By: hbelaih <hbelaih@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:22:08 by hbelaih           #+#    #+#             */
-/*   Updated: 2024/09/11 15:34:31 by hbelaih          ###   ########.fr       */
+/*   Updated: 2024/09/12 18:21:11 by hbelaih          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,19 @@ static void	print_hex(unsigned long num)
 	ft_putchar(s[num % 16]);
 }
 
-int	print_pointer(void *s)
+int	print_pointer(unsigned long l)
 {
 	int				len;
-	unsigned long	l;
 
-	l = (unsigned long)s;
 	len = 0;
-	len += write(1, "0x", 2);
 	if (l == 0)
 	{
-		len += write(1, "0", 1);
+		len += write(1, "(nil)", 5);
 		return (len);
 	}
+	else
+		len += write(1, "0x", 2);
 	print_hex(l);
 	len += hex_len(l);
-	return (l);
+	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: hbelaih <hbelaih@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 00:16:19 by hamzabillah       #+#    #+#             */
-/*   Updated: 2024/09/11 15:28:57 by hbelaih          ###   ########.fr       */
+/*   Updated: 2024/09/12 18:06:08 by hbelaih          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,15 @@ int	ft_putchar(int c)
 
 int	ft_putstr(char *s)
 {
+	if (s == NULL)
+	{
+		write (1, "(null)", 6);
+		return (6);
+	}
 	int	i;
 
 	i = 0;
+
 	while (*s)
 	{
 		ft_putchar((int)*s);
@@ -64,9 +70,4 @@ int	printdigit_upper(unsigned long n, int base)
 		i = printdigit_upper(n / base, base);
 		return (i + printdigit_upper(n % base, base));
 	}
-}
-
-int	print_percent(void)
-{
-	return write(1, "%", 1);
 }
